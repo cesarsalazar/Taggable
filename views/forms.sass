@@ -1,0 +1,76 @@
+
+//Base styles
+
+  
+input, textarea, select, option
+  font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Helvetica, Arial, sans-serif
+  font-size: 1em
+
+fieldset
+
+.field
+  @include clear
+  padding: 0.3em 0.5em
+
+label
+  display: block
+  margin-top: 0.5em
+  margin-right: 2em
+  margin-bottom: 0.2em
+  
+input.text, textarea 
+  line-height: 1.3em
+  
+select
+
+option
+
+.option_list
+  overflow: hidden
+  p
+    margin: 0.5em 0
+  input
+    margin-right: 1em
+  
+input.radio
+
+input.checkbox
+
+
+input.submit
+  @include submit
+  margin: 1em 0
+  
+p.note
+  color: $gray
+  font-size: 0.85em
+  padding-top: 0.5em
+  margin-bottom: 0
+  
+//Validation
+
+.valid
+  input
+    background-color: $valid_light
+
+.invalid  
+  background-color: $invalid_light
+  p.message
+    margin-top: 0.5em
+    margin-bottom: 0
+    font-size: 0.85em
+    color: $invalid_dark
+    
+//Large inputs
+
+@mixin label_left
+  label
+    min-width: 6em
+    float: left
+  p.note
+    margin-left: 6em
+
+@mixin input_large
+  input
+    font-size: 1.5em
+    padding: 0.2em

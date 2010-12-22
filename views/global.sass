@@ -1,0 +1,42 @@
+@import 'reset'
+@import 'palette'
+@import 'mixins'
+@import 'forms'
+
+body
+  font-family:  Helvetica, Arial, sans-serif
+  font-size: 62.5%
+
+p
+  margin-bottom: 10px
+  line-height: 18px
+
+body, input, a 
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif
+  color: #333
+  font-size: 12px
+
+#content 
+  @include centered(600px)
+  margin-top: 100px
+
+  form 
+    padding: 20px 0px
+    overflow: hidden
+
+  ul.tagit li
+    @include round-corners(3px)
+  
+  #tags
+    float: left
+    width: 60%
+    
+  #submit
+    float: left
+    width: 30%
+    padding: 0
+    padding-left: 0.5em
+    input.submit
+      margin: 0
+      @include submit(15px)
+

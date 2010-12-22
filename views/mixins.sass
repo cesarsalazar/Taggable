@@ -1,0 +1,84 @@
+
+
+//Typography mixins
+
+@mixin leagueGothic
+  font-family: 'League Gothic'
+  line-height: 100%
+  text-rendering: optimizeLegibility
+  
+@mixin letterpress($offset: 1px, $size: 1px, $color: #FFFFFF)
+  text-shadow: 0 $offset $size $color
+
+
+// Layout mixins
+
+@mixin centered($width: 960px)
+  margin: 0 auto
+  width: $width
+  
+@mixin clear
+  overflow: hidden
+  
+@mixin layout($columns, $width, $padding)
+  width: $width/$columns - ($padding)
+  padding-right: $padding 
+  
+@mixin horizontal-list($margin: 0)
+  list-style: none
+  @include clear
+  li
+    display: inline
+    float: left
+    margin-left: $margin
+    margin-right: $margin
+    
+  
+//Stylishness mixins
+
+@mixin round-corners($radius: 5px)
+  -webkit-border-radius: $radius
+  -moz-border-radius: $radius
+  -khtml-border-radius: $radius
+  border-radius: $radius
+    
+@mixin box-shadow($value)
+  -moz-box-shadow: $value  
+  -webkit-box-shadow: $value
+  box-shadow: $value
+
+@mixin bg-glow($vertical_offset: 0)
+  background-image: url("/images/bg_glow.png")
+  background-repeat: no-repeat
+  background-position: 50% $vertical_offset
+
+
+
+//Button mixins
+
+@mixin submit($radius: 20px)
+  border: 1px solid #666
+  background: #DDD
+  @include round-corners($radius)
+  @include letterpress
+  height: $radius*2
+  padding-left: $radius
+  padding-right: $radius
+  cursor: pointer
+  text-align: center
+  font-weight: bold
+  &:hover
+    background: #CCC
+
+@mixin button($radius)
+  display: block
+  text-align: center
+  @include round-corners($radius)
+  padding: 10px 5px
+  
+@mixin fb_connect
+  text-indent: -6000px
+  display: block
+  width: 250px
+  height: 33px
+  background: transparent url('/images/fb_connect_250px.png') scroll no-repeat 0 0
