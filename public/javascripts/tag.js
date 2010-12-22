@@ -1,8 +1,20 @@
+var tags = new Array();
 
 $(function(){
-	$("#tags").tag({
-		availableTags: ["c++", "java", "php", "coldfusion", "javascript", "asp", "ruby", "python", "c", "scala", "groovy", "haskell", "perl"]
-	});
+  
+  
+  $.get('/tags', function(data) {
+    
+    $.each(data, function(index, value) { 
+      tags.push(value.name);
+    });
+    
+    $("#tags").tag({
+  		availableTags: tags
+  	});
+  
+  });
+
 });
 
 (function($) {
@@ -102,7 +114,7 @@ $(function(){
 			el  = "<li class=\"tagit-choice\">\n";
 			el += value + "\n";
 			el += "<a class=\"close\">x</a>\n";
-			el += "<input type=\"hidden\" style=\"display:none;\" value=\""+value+"\" name=\"item[tags][]\">\n";
+			el += "<input type=\"hidden\" style=\"display:none;\" value=\""+value+"\" name=\"tags[]\">\n";
 			el += "</li>\n";
 			var li_search_tags = this.tag_input.parent();
 			$(el).insertBefore (li_search_tags);
