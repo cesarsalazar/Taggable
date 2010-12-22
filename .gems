@@ -1,2 +1,8 @@
 sinatra
 haml
+sass
+dm-core
+dm-validations
+dm-migrations
+dm-timestamps
+dm-serializer
