@@ -31,7 +31,7 @@ get '/tags' do
 	@tags.to_json(:only => [:name])
 end
 	
-post '/create' do
+post '/tags' do
 	@tags = params[:tags]
 	@tags.each do |t|
 		@tag = Tag.first_or_create(:name => t)	
