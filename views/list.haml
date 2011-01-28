@@ -1,2 +1,4 @@
-- @tags.each do |tag|
-  %p #{tag.name}
+#content
+  %ul.tags
+    - @tags.each do |tag|
+      %li #{tag.name}

@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'sinatra'
+require 'sinatra/content_for'
 require 'sinatra/reloader' if development?
 require 'haml'
 require 'dm-core'
@@ -14,8 +15,7 @@ class Tag
 	
   include DataMapper::Resource
 	
-	property :id,			Serial
-	property :name, 	String, 	:required => true,	:unique => true
+	property :name, 	String, 	:key => true
 	
 end
 
@@ -23,6 +23,21 @@ Tag.auto_upgrade!
 
 get '/' do
   haml :index
+end
+
+get '/list' do
+  @tags = Tag.all
+  haml :list
+end
+
+get '/edit' do
+  @tags = Tag.all
+  haml :edit
+end
+
+post '/edit' do
+  tag = Tag.get(params[:name])
+  status 200 if tag.destroy
 end
 
 get '/tags' do

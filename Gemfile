@@ -2,6 +2,8 @@ source "http://rubygems.org"
 source "http://gemcutter.org"
 
 gem "sinatra"
+gem "sinatra-content-for"
+gem "sinatra-reloader"
 gem "haml"
 gem "sass"
 gem "dm-core"

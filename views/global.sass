@@ -2,6 +2,7 @@
 @import 'palette'
 @import 'mixins'
 @import 'forms'
+@import 'taggable'
 
 body
   font-family:  Helvetica, Arial, sans-serif
@@ -14,12 +15,20 @@ p
 body, input, a 
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif
   color: #333
-  font-size: 12px
+  font-size: 14px
+
+#header
+  @include centered (600px)
+  margin-top: 50px
+  ul.menu
+    @include horizontal-list
+    li
+      margin: 0 1em 
 
 #content 
   @include centered(600px)
-  margin-top: 100px
-
+  margin-top: 50px
+  
   form 
     padding: 20px 0px
     overflow: hidden
@@ -27,6 +36,14 @@ body, input, a
   ul.tagit li
     @include round-corners(3px)
   
+  ul.tags
+    li
+      display: inline-block
+      padding: 0.3em 0.6em
+      margin-bottom: 0.3em  
+      background: $light_gray
+      border: 1px solid $gray
+    
   #tags
     float: left
     width: 60%
@@ -39,4 +56,4 @@ body, input, a
     input.submit
       margin: 0
       @include submit(15px)
-
+  
