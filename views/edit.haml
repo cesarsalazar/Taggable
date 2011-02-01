@@ -1,0 +1,7 @@
+- content_for :head do
+  %script{:src => '/javascripts/edit.js', :type => 'text/javascript'}
+
+#content  
+  %ul.tags.editable
+    - @tags.each do |tag|
+      %li #{tag.name}
